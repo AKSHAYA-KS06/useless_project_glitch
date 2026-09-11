@@ -1,0 +1,30 @@
+{
+  "name": "useless_project_glitch",
+  "version": "1.0.0",
+  "description": "THINGVERSE - What if everything around us had a life?",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKSHAYA-KS06/useless_project_glitch.git"
+  },
+  "keywords": [
+    "thingverse",
+    "gemini",
+    "ai",
+    "funny",
+    "hackathon"
+  ],
+  "author": "AKSHAYA KS",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.22.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.3.0"
+  }
+}

@@ -2,17 +2,17 @@
 
 
 
-# [Project Name] 🎯
+# [Useless Project] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Glitch]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Akshaya K S] - [NSS ENGINEERING COLLEGE]
+- Member 2: [Abhijith B] - [NSS ENGINEERING COLLEGE]
+
 
 ### Project Description
 [2-3 lines about what your project does]

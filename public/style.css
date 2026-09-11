@@ -1,0 +1,1018 @@
+/* =========================================
+   THINGVERSE
+   MAIN STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #312e81,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #701a75,
+            transparent 35%
+        ),
+        #09090f;
+
+    color: white;
+
+    min-height: 100vh;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 22px 7%;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(10,10,20,0.7);
+
+    backdrop-filter: blur(15px);
+
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+}
+
+.logo-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: black;
+
+}
+
+.tagline {
+
+    font-size: 13px;
+
+    color: #aaa;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        80px 25px
+        70px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        430px;
+
+    gap: 60px;
+
+    align-items: center;
+
+}
+
+.hero-content {
+
+    max-width: 650px;
+
+}
+
+.badge {
+
+    display: inline-block;
+
+    padding:
+        7px 14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 30px;
+
+    color: #c4b5fd;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
+.hero h1 {
+
+    font-size:
+        clamp(48px, 7vw, 82px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 25px;
+
+}
+
+.hero h1 span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c084fc,
+            #67e8f9
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+.hero-text {
+
+    color: #b5b5c5;
+
+    font-size: 18px;
+
+    max-width: 600px;
+
+}
+
+
+/* =========================================
+   UPLOAD CARD
+========================================= */
+
+.upload-card {
+
+    padding: 35px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(20px);
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,0.4);
+
+}
+
+.upload-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+
+}
+
+.upload-card h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+
+}
+
+.upload-card p {
+
+    color: #999;
+
+}
+
+.upload-buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+}
+
+.primary-button,
+.secondary-button,
+.analyze-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    border-radius: 14px;
+
+    padding:
+        13px 18px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+
+}
+
+.primary-button {
+
+    background: white;
+
+    color: #111;
+
+}
+
+.secondary-button {
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+}
+
+.analyze-button {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #06b6d4
+        );
+
+    color: white;
+
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.analyze-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    opacity: 0.9;
+
+}
+
+.upload-note {
+
+    margin-top: 18px;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================
+   PREVIEW
+========================================= */
+
+.preview-container {
+
+    margin-top: 25px;
+
+}
+
+.preview-container img {
+
+    width: 100%;
+
+    max-height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading-section {
+
+    text-align: center;
+
+    padding:
+        80px 20px;
+
+}
+
+.loader {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin:
+        0 auto 25px;
+
+    border:
+        5px solid
+        rgba(255,255,255,0.15);
+
+    border-top-color: white;
+
+    border-radius: 50%;
+
+    animation:
+        spin 1s linear infinite;
+
+}
+
+@keyframes spin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+.loading-section p {
+
+    color: #999;
+
+}
+
+
+/* =========================================
+   RESULTS
+========================================= */
+
+.results-section {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding:
+        30px 25px 80px;
+
+}
+
+.result-header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+.result-header h2 {
+
+    font-size:
+        clamp(40px, 7vw, 70px);
+
+    margin-bottom: 8px;
+
+}
+
+.result-header p {
+
+    color: #aaa;
+
+}
+
+
+/* =========================================
+   RESULT CARDS
+========================================= */
+
+.result-card {
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    backdrop-filter:
+        blur(15px);
+
+}
+
+.card-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+.card-title span {
+
+    font-size: 27px;
+
+}
+
+.card-title h3 {
+
+    font-size: 23px;
+
+}
+
+.result-card p {
+
+    color: #c3c3cc;
+
+}
+
+.traits {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+
+}
+
+.trait {
+
+    padding:
+        8px 14px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   LINKEDIN
+========================================= */
+
+.linkedin-card {
+
+    border-left:
+        4px solid
+        #60a5fa;
+
+}
+
+.linkedin-card h4 {
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+
+}
+
+.info-row {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin:
+        22px 0;
+
+    gap: 5px;
+
+}
+
+.info-row strong,
+.experience-box strong {
+
+    color: white;
+
+}
+
+.chips {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+}
+
+.chip {
+
+    padding:
+        7px 12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(96,165,250,0.12);
+
+    color: #93c5fd;
+
+    font-size: 12px;
+
+}
+
+.experience-box {
+
+    margin-top: 22px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0,0,0,0.15);
+
+}
+
+
+/* =========================================
+   MATRIMONY
+========================================= */
+
+.matrimony-card {
+
+    border-left:
+        4px solid
+        #f472b6;
+
+}
+
+.matrimony-status {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(244,114,182,0.1);
+
+}
+
+.matrimony-status span {
+
+    color: #aaa;
+
+}
+
+.two-column {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 30px;
+
+    margin-top: 25px;
+
+}
+
+.two-column h4 {
+
+    margin-bottom: 12px;
+
+}
+
+.two-column ul {
+
+    padding-left: 20px;
+
+    color: #ccc;
+
+}
+
+.two-column li {
+
+    margin-bottom: 8px;
+
+}
+
+.match-box {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
+.match-box strong {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: white;
+
+}
+
+
+/* =========================================
+   ASTROLOGY
+========================================= */
+
+.astrology-card {
+
+    border-left:
+        4px solid
+        #a78bfa;
+
+}
+
+.astrology-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+}
+
+.astrology-grid div {
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
+.astrology-grid span {
+
+    display: block;
+
+    color: #999;
+
+    font-size: 11px;
+
+    margin-bottom: 5px;
+
+}
+
+.astrology-grid strong {
+
+    font-size: 16px;
+
+}
+
+.prediction {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(167,139,250,0.1);
+
+}
+
+.prediction strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* =========================================
+   FUN FACTS
+========================================= */
+
+.fun-facts {
+
+    list-style: none;
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+.fun-facts li {
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
+
+/* =========================================
+   FINAL VERDICT
+========================================= */
+
+.final-verdict {
+
+    display: flex;
+
+    gap: 18px;
+
+    align-items: flex-start;
+
+    padding: 30px;
+
+    margin-top: 30px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,0.2),
+            rgba(6,182,212,0.12)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+.final-verdict > span {
+
+    font-size: 40px;
+
+}
+
+.final-verdict h3 {
+
+    margin-bottom: 8px;
+
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.result-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    padding:
+        30px;
+
+    text-align: center;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+footer p + p {
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================
+   UTILITY
+========================================= */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 50px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 55px;
+
+    }
+
+    .upload-buttons {
+
+        flex-direction: column;
+
+    }
+
+    .two-column {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .astrology-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+
+        font-size: 44px;
+
+        letter-spacing: -2px;
+
+    }
+
+    .upload-card {
+
+        padding: 25px;
+
+    }
+
+    .result-card {
+
+        padding: 22px;
+
+    }
+
+    .astrology-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .result-actions {
+
+        flex-direction: column;
+
+    }
+
+}

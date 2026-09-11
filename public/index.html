@@ -1,0 +1,565 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>THINGVERSE | What If Everything Had a Life?</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================
+         NAVBAR
+    ====================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <span class="logo-icon">◉</span>
+
+            <span>THINGVERSE</span>
+
+        </div>
+
+        <div class="tagline">
+            What if everything around us had a life?
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    ✦ AI-POWERED USELESSNESS
+                </div>
+
+                <h1>
+                    Give Your Things
+                    <span>A Life.</span>
+                </h1>
+
+                <p class="hero-text">
+
+                    Upload a photo of literally anything.
+                    We'll turn it into a person with a career,
+                    personality, destiny and questionable life choices.
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 UPLOAD CARD
+            ================================== -->
+
+            <div class="upload-card">
+
+                <div class="upload-icon">
+                    📸
+                </div>
+
+                <h2>
+                    Meet Your Thing
+                </h2>
+
+                <p>
+                    Upload an image or take a photo
+                </p>
+
+
+                <div class="upload-buttons">
+
+                    <label
+                        for="imageInput"
+                        class="primary-button"
+                    >
+
+                        📁 Upload Image
+
+                    </label>
+
+
+                    <label
+                        for="cameraInput"
+                        class="secondary-button"
+                    >
+
+                        📷 Take Photo
+
+                    </label>
+
+                </div>
+
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+
+                <input
+                    type="file"
+                    id="cameraInput"
+                    accept="image/*"
+                    capture="environment"
+                    hidden
+                >
+
+
+                <div
+                    id="previewContainer"
+                    class="preview-container hidden"
+                >
+
+                    <img
+                        id="previewImage"
+                        alt="Selected image"
+                    >
+
+                    <button
+                        id="analyzeButton"
+                        class="analyze-button"
+                    >
+
+                        ✨ Enter the THINGVERSE
+
+                    </button>
+
+                </div>
+
+
+                <p class="upload-note">
+
+                    JPG, PNG or WEBP • Maximum 10 MB
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             LOADING
+        ====================================== -->
+
+        <section
+            id="loadingSection"
+            class="loading-section hidden"
+        >
+
+            <div class="loader"></div>
+
+            <h2>
+                Your thing is getting a life...
+            </h2>
+
+            <p id="loadingText">
+                Consulting the extremely unnecessary AI...
+            </p>
+
+        </section>
+
+
+        <!-- =====================================
+             RESULTS
+        ====================================== -->
+
+        <section
+            id="resultsSection"
+            class="results-section hidden"
+        >
+
+            <div class="result-header">
+
+                <div class="badge">
+                    ✦ THINGVERSE IDENTITY GENERATED
+                </div>
+
+                <h2 id="objectName">
+                    Your Thing
+                </h2>
+
+                <p id="oneLineDescription">
+                </p>
+
+            </div>
+
+
+            <!-- PERSONALITY -->
+
+            <div class="result-card personality-card">
+
+                <div class="card-title">
+
+                    <span>🎭</span>
+
+                    <h3>
+                        Personality
+                    </h3>
+
+                </div>
+
+                <p id="funnyDescription"></p>
+
+
+                <div
+                    id="personalityTraits"
+                    class="traits"
+                >
+                </div>
+
+            </div>
+
+
+            <!-- LINKEDIN -->
+
+            <div class="result-card linkedin-card">
+
+                <div class="card-title">
+
+                    <span>💼</span>
+
+                    <h3>
+                        LinkedIn
+                    </h3>
+
+                </div>
+
+
+                <h4 id="linkedinHeadline"></h4>
+
+                <p id="linkedinAbout"></p>
+
+
+                <div class="info-row">
+
+                    <strong>
+                        Current Role
+                    </strong>
+
+                    <span id="linkedinRole"></span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Skills
+                    </strong>
+
+                    <div
+                        id="linkedinSkills"
+                        class="chips"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div class="experience-box">
+
+                    <strong>
+                        Experience
+                    </strong>
+
+                    <p id="linkedinExperience"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MATRIMONY -->
+
+            <div class="result-card matrimony-card">
+
+                <div class="card-title">
+
+                    <span>💍</span>
+
+                    <h3>
+                        Matrimony
+                    </h3>
+
+                </div>
+
+
+                <div class="matrimony-status">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="marriageStatus"></strong>
+
+                </div>
+
+
+                <p id="marriageBio"></p>
+
+
+                <div class="two-column">
+
+                    <div>
+
+                        <h4>
+                            💚 Green Flags
+                        </h4>
+
+                        <ul
+                            id="greenFlags"
+                        >
+                        </ul>
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            🚩 Red Flags
+                        </h4>
+
+                        <ul
+                            id="redFlags"
+                        >
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="match-box">
+
+                    <strong>
+                        Best Match
+                    </strong>
+
+                    <p id="bestMatch"></p>
+
+                    <strong>
+                        Looking For
+                    </strong>
+
+                    <p id="lookingFor"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ASTROLOGY -->
+
+            <div class="result-card astrology-card">
+
+                <div class="card-title">
+
+                    <span>🔮</span>
+
+                    <h3>
+                        Astrology
+                    </h3>
+
+                </div>
+
+
+                <div class="astrology-grid">
+
+                    <div>
+
+                        <span>
+                            Zodiac
+                        </span>
+
+                        <strong id="zodiac"></strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Element
+                        </span>
+
+                        <strong id="element"></strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Lucky Number
+                        </span>
+
+                        <strong id="luckyNumber"></strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Mood
+                        </span>
+
+                        <strong id="mood"></strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="prediction">
+
+                    <strong>
+                        Today's Totally Accurate Prediction
+                    </strong>
+
+                    <p id="prediction"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FUN FACTS -->
+
+            <div class="result-card">
+
+                <div class="card-title">
+
+                    <span>🤯</span>
+
+                    <h3>
+                        Completely Unnecessary Fun Facts
+                    </h3>
+
+                </div>
+
+
+                <ul
+                    id="funFacts"
+                    class="fun-facts"
+                >
+                </ul>
+
+            </div>
+
+
+            <!-- DAILY LIFE -->
+
+            <div class="result-card">
+
+                <div class="card-title">
+
+                    <span>☀️</span>
+
+                    <h3>
+                        A Day in Its Life
+                    </h3>
+
+                </div>
+
+                <p id="dailyLife"></p>
+
+            </div>
+
+
+            <!-- FINAL VERDICT -->
+
+            <div class="final-verdict">
+
+                <span>
+                    ⚖️
+                </span>
+
+                <div>
+
+                    <h3>
+                        THINGVERSE FINAL VERDICT
+                    </h3>
+
+                    <p id="finalVerdict"></p>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-actions">
+
+                <button
+                    id="copyButton"
+                    class="secondary-button"
+                >
+                    📋 Copy Profile
+                </button>
+
+
+                <button
+                    id="newThingButton"
+                    class="primary-button"
+                >
+                    🔄 Meet Another Thing
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+        <p>
+            THINGVERSE © 2026
+        </p>
+
+        <p>
+            Making ordinary things unnecessarily interesting.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
