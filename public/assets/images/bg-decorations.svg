@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="planetGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="planetGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="saturnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Big Soft Cosmic Planet (Top Right) -->
+  <circle cx="1280" cy="180" r="140" fill="url(#planetGrad1)"/>
+  <ellipse cx="1280" cy="180" rx="190" ry="24" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-opacity="0.3" transform="rotate(-20 1280 180)"/>
+
+  <!-- Warm Sun/Planet (Bottom Left) -->
+  <circle cx="160" cy="740" r="110" fill="url(#planetGrad2)"/>
+  
+  <!-- Medium Ringed Planet (Center Right) -->
+  <circle cx="1120" cy="680" r="70" fill="url(#saturnGrad)"/>
+  <ellipse cx="1120" cy="680" rx="100" ry="18" fill="none" stroke="#f472b6" stroke-width="2" stroke-opacity="0.35" transform="rotate(25 1120 680)"/>
+
+  <!-- Whimsical Camera / Tech Contour -->
+  <g transform="translate(240, 160) scale(0.6)" opacity="0.18">
+    <rect x="0" y="20" width="90" height="60" rx="14" fill="none" stroke="#38bdf8" stroke-width="3"/>
+    <path d="M 25 20 L 35 6 L 55 6 L 65 20 Z" fill="none" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="45" cy="50" r="16" fill="none" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="45" cy="50" r="6" fill="#38bdf8"/>
+    <circle cx="72" cy="34" r="4" fill="#fbbf24"/>
+  </g>
+
+  <!-- Friendly Floating Toaster Outline (Center Left) -->
+  <g transform="translate(180, 420) scale(0.55)" opacity="0.15">
+    <rect x="0" y="30" width="80" height="55" rx="12" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <path d="M 20 30 L 20 12 Q 40 12 60 12 L 60 30" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <rect x="74" y="44" width="10" height="12" rx="3" fill="#fbbf24"/>
+    <circle cx="40" cy="58" r="8" fill="none" stroke="#fbbf24" stroke-width="2"/>
+  </g>
+
+  <!-- Sparkles & Stars -->
+  <!-- Top Area -->
+  <path d="M 460 110 L 464 124 L 478 128 L 464 132 L 460 146 L 456 132 L 442 128 L 456 124 Z" fill="#fbbf24" opacity="0.35"/>
+  <path d="M 820 90 L 823 99 L 832 102 L 823 105 L 820 114 L 817 105 L 808 102 L 817 99 Z" fill="#38bdf8" opacity="0.4"/>
+  <circle cx="680" cy="140" r="3" fill="#ffffff" opacity="0.45"/>
+  <circle cx="340" cy="80" r="2.5" fill="#f472b6" opacity="0.4"/>
+
+  <!-- Mid Area -->
+  <path d="M 940 380 L 943 389 L 952 392 L 943 395 L 940 404 L 937 395 L 928 392 L 937 389 Z" fill="#fbbf24" opacity="0.3"/>
+  <circle cx="600" cy="460" r="3" fill="#38bdf8" opacity="0.35"/>
+  <circle cx="80" cy="310" r="2" fill="#ffffff" opacity="0.4"/>
+  <circle cx="1380" cy="440" r="3.5" fill="#a78bfa" opacity="0.4"/>
+
+  <!-- Bottom Area -->
+  <path d="M 420 740 L 423 750 L 433 753 L 423 756 L 420 766 L 417 756 L 407 753 L 417 750 Z" fill="#38bdf8" opacity="0.35"/>
+  <path d="M 860 780 L 863 788 L 871 791 L 863 794 L 860 802 L 857 794 L 849 791 L 857 788 Z" fill="#f472b6" opacity="0.35"/>
+  <circle cx="700" cy="810" r="3" fill="#ffffff" opacity="0.4"/>
+  <circle cx="1020" cy="840" r="2.5" fill="#fbbf24" opacity="0.4"/>
+  <circle cx="300" cy="830" r="2.5" fill="#a78bfa" opacity="0.35"/>
+
+  <!-- Constellation Circuit Lines -->
+  <polyline points="460,128 540,180 620,160 680,140" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.18" stroke-dasharray="4,4"/>
+  <polyline points="940,392 1010,430 1080,390" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.18" stroke-dasharray="4,4"/>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="eyeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="bellyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Antenna -->
+  <line x1="100" y1="42" x2="100" y2="24" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="100" cy="20" r="8" fill="#fbbf24" filter="url(#glow)"/>
+  <circle cx="100" cy="20" r="3" fill="#ffffff"/>
+
+  <!-- Ears / Bolts -->
+  <rect x="36" y="66" width="10" height="18" rx="4" fill="#fbbf24"/>
+  <rect x="154" y="66" width="10" height="18" rx="4" fill="#fbbf24"/>
+
+  <!-- Robot Head -->
+  <rect x="42" y="42" width="116" height="74" rx="26" fill="url(#bodyGrad)" stroke="#c4b5fd" stroke-width="3"/>
+
+  <!-- Face Screen -->
+  <rect x="52" y="52" width="96" height="54" rx="16" fill="url(#screenGrad)" stroke="#475569" stroke-width="2"/>
+
+  <!-- Animated-style Glowing Cyan Eyes -->
+  <ellipse cx="78" cy="76" rx="12" ry="15" fill="url(#eyeGrad)" filter="url(#glow)"/>
+  <ellipse cx="122" cy="76" rx="12" ry="15" fill="url(#eyeGrad)" filter="url(#glow)"/>
+
+  <!-- Eye Sparkles / Highlights -->
+  <circle cx="82" cy="71" r="4" fill="#ffffff"/>
+  <circle cx="75" cy="81" r="2" fill="#ffffff"/>
+  <circle cx="126" cy="71" r="4" fill="#ffffff"/>
+  <circle cx="119" cy="81" r="2" fill="#ffffff"/>
+
+  <!-- Cute Rosy Cheeks -->
+  <ellipse cx="64" cy="94" rx="6" ry="3" fill="#f472b6" opacity="0.8"/>
+  <ellipse cx="136" cy="94" rx="6" ry="3" fill="#f472b6" opacity="0.8"/>
+
+  <!-- Friendly Smile -->
+  <path d="M 92 88 Q 100 96 108 88" stroke="#38bdf8" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Neck -->
+  <rect x="88" y="116" width="24" height="10" rx="3" fill="#64748b"/>
+
+  <!-- Body / Torso -->
+  <rect x="54" y="124" width="92" height="60" rx="22" fill="url(#bellyGrad)" stroke="#c4b5fd" stroke-width="2.5"/>
+
+  <!-- Belly Screen / Heart Meter -->
+  <rect x="68" y="136" width="64" height="34" rx="10" fill="#0f172a"/>
+  
+  <!-- Heart Gauge on Screen -->
+  <path d="M 100 148 C 96 142, 88 142, 88 148 C 88 155, 100 162, 100 162 C 100 162, 112 155, 112 148 C 112 142, 104 142, 100 148 Z" fill="#f43f5e" filter="url(#glow)"/>
+  <circle cx="76" cy="153" r="3" fill="#38bdf8"/>
+  <circle cx="124" cy="153" r="3" fill="#fbbf24"/>
+
+  <!-- Waving Left Arm -->
+  <path d="M 54 136 C 35 130, 22 110, 26 95" stroke="#8b5cf6" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <circle cx="26" cy="92" r="8" fill="#fbbf24"/>
+
+  <!-- Right Arm Resting -->
+  <path d="M 146 136 C 165 142, 172 158, 168 170" stroke="#8b5cf6" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <circle cx="168" cy="172" r="7" fill="#fbbf24"/>
+
+  <!-- Cute Sparkles Around Robot -->
+  <path d="M 160 38 L 163 46 L 171 49 L 163 52 L 160 60 L 157 52 L 149 49 L 157 46 Z" fill="#fbbf24"/>
+  <circle cx="34" cy="46" r="3" fill="#38bdf8"/>
+  <circle cx="178" cy="110" r="2.5" fill="#f472b6"/>
+</svg>

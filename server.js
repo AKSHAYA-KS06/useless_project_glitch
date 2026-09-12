@@ -33,6 +33,10 @@ app.use(express.urlencoded({
 // Serve frontend
 app.use(express.static(path.join(__dirname, "public")));
 
+// Serve generated 3D Pixar character artifacts
+const artifactsPath = path.join(process.env.USERPROFILE || 'C:/Users/AKSHAYA KS', '.gemini/antigravity-ide/brain/9aef91cb-3fde-446c-be0b-8687d20d8de7');
+app.use('/artifacts', express.static(artifactsPath));
+
 // ============================================
 // IMAGE UPLOAD CONFIGURATION
 // ============================================
@@ -190,35 +194,36 @@ It could be:
 - household object
 - animal
 - gadget
+- recognizable public person
 - or another visible object.
 
-Your job is to turn the main visible object into a completely fictional character.
+Your job is to identify the main object, animal, or person shown in the image and provide a clean, humorous ThingVerse profile.
 
 IMPORTANT RULES:
 
-1. Identify the main visible object.
-2. Keep everything fictional and humorous.
-3. Do not identify real people.
-4. Do not make serious claims about the real object.
-5. Do not provide dangerous instructions.
-6. Keep the content family-friendly.
-7. The LinkedIn section is a parody.
-8. The Matrimony section is a fictional parody profile for the object.
-9. Astrology is fictional entertainment only.
-10. Do not use markdown.
-11. Return ONLY valid JSON.
-12. Make the humor suitable for college students.
-13. Make the answers creative enough for a hackathon demonstration.
+1. Identify the main visible object, animal, or person clearly (e.g., Chair, Laptop, Dog, Flower, or person's name).
+2. If the image contains a recognizable public person, identify their actual name and provide authentic factual biographical information in whatIsIt, interestingFacts, and moreInformation, accompanied by a verified Wikipedia/source URL in learnMoreUrl. Do not invent personal information for real people.
+3. For objects and animals, provide a creative, humorous ThingVerse personality.
+4. Keep the funnyDescription SHORT (1 comedy punchline sentence, e.g., "Chair — Professional butt supporter with a full-time job of holding you up."). Do not generate a long paragraph.
+5. Provide 1 to 3 interesting facts in interestingFacts.
+6. Provide useful context in moreInformation.
+7. Return ONLY valid JSON with no markdown fences.
 
 Return exactly this JSON structure:
 
 {
-  "objectName": "",
-  "nickname": "",
-  "category": "",
-  "confidence": 0,
-  "oneLineDescription": "",
+  "identifiedName": "",
+  "isPerson": false,
+  "whatIsIt": "",
   "funnyDescription": "",
+  "interestingFacts": [
+    "",
+    ""
+  ],
+  "moreInformation": "",
+  "learnMoreUrl": "https://en.wikipedia.org/wiki/...",
+  "category": "",
+  "confidence": 95,
 
   "personality": {
     "trait1": "",
@@ -234,78 +239,13 @@ Return exactly this JSON structure:
     "experience": ""
   },
 
-  "matrimony": {
-    "status": "",
-    "lookingFor": "",
-    "bestMatch": "",
-    "bio": "",
-    "greenFlags": [],
-    "redFlags": []
-  },
-
   "astrology": {
     "zodiac": "",
     "element": "",
-    "luckyNumber": "",
-    "mood": "",
+    "planet": "",
     "prediction": ""
-  },
-
-  "funFacts": [],
-
-  "dailyLife": "",
-
-  "finalVerdict": ""
+  }
 }
-
-REQUIREMENTS:
-
-objectName:
-Identify what is actually visible.
-
-nickname:
-Create a funny nickname.
-
-category:
-Give a suitable category.
-
-confidence:
-Give a number from 0 to 100.
-
-oneLineDescription:
-One funny sentence.
-
-funnyDescription:
-2-4 funny sentences.
-
-personality:
-Exactly 3 traits.
-
-LinkedIn:
-Exactly 4 skills.
-
-Matrimony:
-Exactly 3 green flags.
-Exactly 3 red flags.
-
-Astrology:
-Create a completely fictional zodiac identity.
-
-funFacts:
-Exactly 4 funny facts.
-
-dailyLife:
-Describe a fictional normal day in the object's life.
-
-finalVerdict:
-Give a funny final judgement.
-
-Remember:
-
-This is a fictional entertainment experience.
-
-Return JSON only.
-
 `;
 
             // ========================================
@@ -315,7 +255,7 @@ Return JSON only.
             const response =
                 await ai.models.generateContent({
 
-                    model: "gemini-2.5-flash",
+                    model: "gemini-3.6-flash",
 
                     contents: [
 
@@ -488,8 +428,7 @@ app.listen(
         );
 
         console.log(
-            `🤖 AI: ${
-                ai ? "Configured" : "Not configured"
+            `🤖 AI: ${ai ? "Configured" : "Not configured"
             }`
         );
 

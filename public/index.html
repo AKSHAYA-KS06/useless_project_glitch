@@ -1,565 +1,1044 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="THINGVERSE — What if everything around us had a life? A multi-screen interactive cartoon universe where everyday objects have hilarious personalities, LinkedIn profiles, horoscopes, and voice lines!">
+    <title>THINGVERSE | Multi-Screen Living Object Journey</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>THINGVERSE | What If Everything Had a Life?</title>
-
+    <!-- Google Fonts: Fredoka (Pixar Playful Cartoon) + Outfit (Modern Clean UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="theme-thingverse" id="appBody">
 
-    <!-- =====================================
-         NAVBAR
-    ====================================== -->
+    <!-- Ambient Subtle Particle Dust & Starry Sparkles -->
+    <div class="ambient-particles-canvas" id="ambientParticles" aria-hidden="true"></div>
 
-    <header class="navbar">
+    <!-- ============================================================
+         TOP STICKY NAVIGATION BAR & 8-STEP PROGRESS TRACKER
+         ============================================================ -->
+    <header class="thing-top-header" id="thingTopHeader">
+        <div class="header-inner-row">
+            <!-- Brand Logo -->
+            <a href="#page-1" class="brand-logo-btn" id="btnLogoHome" title="THINGVERSE: Return to Home">
+                <div class="brand-mascot-avatar" aria-hidden="true">
+                    <span class="mascot-face-icon">☕</span>
+                    <span class="mascot-steam-puff">~</span>
+                </div>
+                <div class="brand-title-wrap">
+                    <span class="brand-title-text">THING<span class="brand-highlight">VERSE</span></span>
+                    <span class="brand-sub-tag">LIVING OBJECT MULTIVERSE</span>
+                </div>
+            </a>
 
-        <div class="logo">
+            <!-- 8-Step Interactive Progress Stepper -->
+            <nav class="flow-progress-stepper" id="flowStepper" aria-label="Journey Progress">
+                <button type="button" class="step-node active" data-step="1" title="Screen 1: Home">
+                    <span class="step-num">1</span>
+                    <span class="step-label">Home</span>
+                </button>
+                <span class="step-connector"></span>
 
-            <span class="logo-icon">◉</span>
+                <button type="button" class="step-node" data-step="2" title="Screen 2: Upload">
+                    <span class="step-num">2</span>
+                    <span class="step-label">Upload</span>
+                </button>
+                <span class="step-connector"></span>
 
-            <span>THINGVERSE</span>
+                <button type="button" class="step-node" data-step="3" title="Screen 3: Detect">
+                    <span class="step-num">3</span>
+                    <span class="step-label">Detect</span>
+                </button>
+                <span class="step-connector"></span>
 
+                <button type="button" class="step-node" data-step="4" title="Screen 4: Personality">
+                    <span class="step-num">4</span>
+                    <span class="step-label">Personality</span>
+                </button>
+                <span class="step-connector"></span>
+
+                <button type="button" class="step-node" data-step="5" title="Screen 5: LinkedIn">
+                    <span class="step-num">5</span>
+                    <span class="step-label">LinkedIn</span>
+                </button>
+                <span class="step-connector"></span>
+
+                <button type="button" class="step-node" data-step="6" title="Screen 6: Astro">
+                    <span class="step-num">6</span>
+                    <span class="step-label">Astro</span>
+                </button>
+                <span class="step-connector"></span>
+
+                <button type="button" class="step-node" data-step="7" title="Screen 7: Ask">
+                    <span class="step-num">7</span>
+                    <span class="step-label">Ask</span>
+                </button>
+                <span class="step-connector"></span>
+
+                <button type="button" class="step-node" data-step="8" title="Screen 8: Final Profile">
+                    <span class="step-num">8</span>
+                    <span class="step-label">Profile</span>
+                </button>
+            </nav>
+
+            <!-- Quick Action Controls -->
+            <div class="header-actions-cluster">
+                <button type="button" class="btn-ctrl-circle" id="btnSoundToggle" title="Toggle Sound FX">
+                    <span id="soundIcon">🔊</span>
+                </button>
+                <button type="button" class="btn-ctrl-pill" id="btnRestartJourney" title="Start a New Thing">
+                    <span>🔄 New Thing</span>
+                </button>
+            </div>
         </div>
-
-        <div class="tagline">
-            What if everything around us had a life?
-        </div>
-
     </header>
 
+    <!-- ============================================================
+         MAIN MULTI-SCREEN STAGE CONTAINER
+         ============================================================ -->
+    <main class="multiscreen-stage" id="multiscreenStage">
 
-    <!-- =====================================
-         HERO
-    ====================================== -->
+        <!-- ========================================================
+             PAGE 1 — 🏠 THINGVERSE HOME
+             ======================================================== -->
+        <section class="screen-container active" id="screen-1" data-screen-index="1">
+            <div class="screen-bg-canvas bg-home-universe">
+                <div class="bg-cinematic-room"></div>
+                <div class="bg-warm-overlay"></div>
+            </div>
 
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-content">
-
-                <div class="badge">
-                    ✦ AI-POWERED USELESSNESS
+            <!-- Parallax Interactive Actors -->
+            <div class="home-actors-layer" id="homeActorsLayer">
+                <div class="home-actor actor-chair" role="button" tabindex="0" title="Click Charlie the Chair!">
+                    <div class="actor-bubble">“Supporting everyone. My cushions ache.”</div>
+                    <div class="actor-sprite">🪑</div>
+                    <span class="actor-shadow"></span>
                 </div>
 
-                <h1>
-                    Give Your Things
-                    <span>A Life.</span>
+                <div class="home-actor actor-clock" role="button" tabindex="0" title="Click Barnaby the Clock!">
+                    <div class="actor-bubble">“TICK TOCK! Don't you dare hit snooze!”</div>
+                    <div class="actor-sprite">⏰</div>
+                    <span class="actor-shadow"></span>
+                </div>
+
+                <div class="home-actor actor-coffee" role="button" tabindex="0" title="Click Pip the Mug!">
+                    <div class="actor-bubble">“100% caffeine &amp; questionable decisions!”</div>
+                    <div class="actor-sprite">☕</div>
+                    <span class="actor-shadow"></span>
+                </div>
+
+                <div class="home-actor actor-laptop" role="button" tabindex="0" title="Click Leonard the Laptop!">
+                    <div class="actor-bubble">“Please close tab 47... I'm wheezing.”</div>
+                    <div class="actor-sprite">💻</div>
+                    <span class="actor-shadow"></span>
+                </div>
+
+                <div class="home-actor actor-phone" role="button" tabindex="0" title="Click Penelope the Phone!">
+                    <div class="actor-bubble">“142 notifications! Look at me!”</div>
+                    <div class="actor-sprite">📱</div>
+                    <span class="actor-shadow"></span>
+                </div>
+
+                <div class="home-actor actor-plant" role="button" tabindex="0" title="Click Zen the Succulent!">
+                    <div class="actor-bubble">“Peacefully judging when you'll water me.”</div>
+                    <div class="actor-sprite">🪴</div>
+                    <span class="actor-shadow"></span>
+                </div>
+            </div>
+
+            <!-- Page 1 Hero Card -->
+            <div class="screen-content-wrapper home-hero-content">
+                <div class="hero-eyebrow-pill">
+                    <span class="pill-sparkle">✨</span>
+                    <span>THE PIXAR-INSPIRED OBJECT MULTIVERSE</span>
+                </div>
+
+                <h1 class="hero-heroic-title">
+                    THING<span class="title-grad">VERSE</span>
                 </h1>
 
-                <p class="hero-text">
-
-                    Upload a photo of literally anything.
-                    We'll turn it into a person with a career,
-                    personality, destiny and questionable life choices.
-
+                <p class="hero-main-tagline">
+                    “What if everything around us had a life?”
                 </p>
 
-            </div>
-
-
-            <!-- =================================
-                 UPLOAD CARD
-            ================================== -->
-
-            <div class="upload-card">
-
-                <div class="upload-icon">
-                    📸
-                </div>
-
-                <h2>
-                    Meet Your Thing
-                </h2>
-
-                <p>
-                    Upload an image or take a photo
+                <p class="hero-lead-text">
+                    Upload anything. Give it a personality. Discover what it would say.
                 </p>
 
-
-                <div class="upload-buttons">
-
-                    <label
-                        for="imageInput"
-                        class="primary-button"
-                    >
-
-                        📁 Upload Image
-
-                    </label>
-
-
-                    <label
-                        for="cameraInput"
-                        class="secondary-button"
-                    >
-
-                        📷 Take Photo
-
-                    </label>
-
-                </div>
-
-
-                <input
-                    type="file"
-                    id="imageInput"
-                    accept="image/*"
-                    hidden
-                >
-
-
-                <input
-                    type="file"
-                    id="cameraInput"
-                    accept="image/*"
-                    capture="environment"
-                    hidden
-                >
-
-
-                <div
-                    id="previewContainer"
-                    class="preview-container hidden"
-                >
-
-                    <img
-                        id="previewImage"
-                        alt="Selected image"
-                    >
-
-                    <button
-                        id="analyzeButton"
-                        class="analyze-button"
-                    >
-
-                        ✨ Enter the THINGVERSE
-
+                <div class="hero-buttons-row">
+                    <button type="button" class="btn-hero-primary" id="btnHomeEnter">
+                        <span class="btn-icon">🚀</span>
+                        <span>ENTER THINGVERSE</span>
                     </button>
-
+                    <button type="button" class="btn-hero-secondary" id="btnHomeUpload">
+                        <span class="btn-icon">📸</span>
+                        <span>UPLOAD A THING</span>
+                    </button>
                 </div>
 
-
-                <p class="upload-note">
-
-                    JPG, PNG or WEBP • Maximum 10 MB
-
-                </p>
-
+                <div class="hero-interactive-tip">
+                    <span>👆 Click or hover over floating objects to hear their secret thoughts!</span>
+                </div>
             </div>
-
         </section>
 
 
-        <!-- =====================================
-             LOADING
-        ====================================== -->
+        <!-- ========================================================
+             PAGE 2 — 📸 UPLOAD YOUR THING & INSTANT AI RESULTS
+             ======================================================== -->
+        <section class="screen-container" id="screen-2" data-screen-index="2">
+            <div class="screen-bg-canvas bg-upload-studio"></div>
 
-        <section
-            id="loadingSection"
-            class="loading-section hidden"
-        >
+            <div class="screen-content-wrapper upload-screen-wrapper">
+                <div class="screen-header-block">
+                    <span class="screen-step-badge">STEP 2 OF 8</span>
+                    <h2 class="screen-heading">PHOTO UPLOAD &amp; IDENTIFICATION</h2>
+                    <p class="screen-subheading">“Upload any object, animal, or person. Watch ThingVerse instantly
+                        analyze and awaken it.”</p>
+                </div>
 
-            <div class="loader"></div>
+                <!-- Unified Single Upload Hub -->
+                <div class="upload-unified-hub" id="uploadUnifiedHub">
+                    <!-- ONE Clear Upload Option Area -->
+                    <div class="single-upload-card" id="singleUploadCard">
+                        <div class="upload-card-content">
+                            <div class="upload-badge-aura">📸</div>
+                            <h3 class="upload-callout-title">Upload a Photo</h3>
+                            <p class="upload-callout-desc">Select an image from your device or drag &amp; drop it below
+                            </p>
 
-            <h2>
-                Your thing is getting a life...
-            </h2>
+                            <!-- Primary Action Buttons -->
+                            <div class="upload-actions-group">
+                                <button type="button" class="btn-primary-upload" id="btnBrowseFile">
+                                    <span class="btn-icon">📁</span>
+                                    <span>Upload Photo</span>
+                                </button>
+                                <button type="button" class="btn-secondary-camera" id="btnOpenCamera"
+                                    title="Take a photo with your camera">
+                                    <span class="btn-icon">📷</span>
+                                    <span>Take Photo</span>
+                                </button>
+                            </div>
 
-            <p id="loadingText">
-                Consulting the extremely unnecessary AI...
-            </p>
+                            <!-- Single Hidden File Input -->
+                            <input type="file" id="page2FileInput" accept="image/jpeg,image/png,image/webp,image/jpg"
+                                style="display: none;">
 
+                            <!-- Integrated Drag & Drop Zone -->
+                            <div class="integrated-dropzone" id="page2Dropzone">
+                                <span class="drop-icon">📥</span>
+                                <span class="drop-text">Or drag &amp; drop an image here (JPG, PNG, WEBP)</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Test Presets -->
+                        <div class="presets-quick-bar">
+                            <span class="presets-label">⚡ Quick Test Presets:</span>
+                            <div class="presets-chips-grid">
+                                <button type="button" class="preset-chip active" data-preset="chair">🪑 Chair</button>
+                                <button type="button" class="preset-chip" data-preset="laptop">💻 Laptop</button>
+                                <button type="button" class="preset-chip" data-preset="dog">🐕 Dog</button>
+                                <button type="button" class="preset-chip" data-preset="flower">🌸 Flower</button>
+                                <button type="button" class="preset-chip" data-preset="coffee">☕ Coffee</button>
+                                <button type="button" class="preset-chip" data-preset="phone">📱 Phone</button>
+                                <button type="button" class="preset-chip" data-preset="shoes">👟 Shoes</button>
+                                <button type="button" class="preset-chip chip-person" data-preset="stevejobs">👤 Steve
+                                    Jobs</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis & Result Section (Rendered immediately after upload) -->
+                <div class="photo-result-stage" id="photoResultStage">
+                    <div class="result-stage-layout">
+                        <!-- Left Column: Uploaded Image Preview & Identified Name -->
+                        <div class="photo-preview-column">
+                            <div class="photo-preview-card">
+                                <div class="photo-card-status">
+                                    <span class="status-indicator-dot"></span>
+                                    <span id="photoStatusText">LIVE PREVIEW</span>
+                                </div>
+
+                                <div class="preview-viewport" id="previewViewport">
+                                    <img src="/artifacts/obj_cartoon_chair_1789174799430.jpg" alt="Uploaded Photo"
+                                        class="uploaded-photo-img" id="page2PreviewImg"
+                                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80';">
+                                    <div class="scanner-sweep-line" id="scannerSweepLine"></div>
+                                </div>
+
+                                <!-- Prominently Displayed Identified Name -->
+                                <div class="prominent-identification-box">
+                                    <span class="ident-label-tiny">IDENTIFIED SUBJECT</span>
+                                    <h3 class="prominent-identified-name" id="prominentIdentifiedName">Chair 🪑</h3>
+                                    <span class="identified-pill" id="identifiedCategoryPill">Domestic Sitting
+                                        Specialist</span>
+                                </div>
+
+                                <!-- Change / Re-upload Option -->
+                                <button type="button" class="btn-change-photo" id="btnChangePhoto">
+                                    <span>🔄 Upload Another Photo</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: The 6 Separate Interactive Result Cards -->
+                        <div class="result-cards-column">
+                            <div class="result-cards-header">
+                                <h4 class="cards-section-title">✨ Identification &amp; Character Dossier</h4>
+                                <span class="cards-section-sub">Real-time analysis results</span>
+                            </div>
+
+                            <div class="result-cards-grid">
+                                <!-- Card 1: IDENTIFIED THING -->
+                                <div class="interactive-result-card card-identified" id="cardIdentified">
+                                    <div class="card-icon-bubble">🏷️</div>
+                                    <div class="card-header-meta">
+                                        <span class="card-kicker">IDENTIFIED THING</span>
+                                        <h5 class="card-main-val" id="cardValIdentified">Chair</h5>
+                                    </div>
+                                    <div class="card-extra-tag" id="cardValConfidence">Confidence: 99% • Object</div>
+                                </div>
+
+                                <!-- Card 2: WHAT IS IT? -->
+                                <div class="interactive-result-card card-what-is-it" id="cardWhatIsIt">
+                                    <div class="card-icon-bubble">💡</div>
+                                    <div class="card-header-meta">
+                                        <span class="card-kicker">WHAT IS IT?</span>
+                                    </div>
+                                    <p class="card-body-text" id="cardValWhatIsIt">
+                                        A piece of furniture designed for one person to sit on, typically featuring a
+                                        supportive seat, backrest, and four sturdy legs.
+                                    </p>
+                                </div>
+
+                                <!-- Card 3: FUNNY DESCRIPTION -->
+                                <div class="interactive-result-card card-funny-desc" id="cardFunnyDesc">
+                                    <div class="card-icon-bubble">😂</div>
+                                    <div class="card-header-meta">
+                                        <span class="card-kicker">FUNNY DESCRIPTION</span>
+                                    </div>
+                                    <blockquote class="card-funny-quote" id="cardValFunnyDesc">
+                                        “Chair — Professional butt supporter with a full-time job of holding you up.”
+                                    </blockquote>
+                                </div>
+
+                                <!-- Card 4: INTERESTING FACT -->
+                                <div class="interactive-result-card card-facts" id="cardFacts">
+                                    <div class="card-icon-bubble">✨</div>
+                                    <div class="card-header-meta">
+                                        <span class="card-kicker">INTERESTING FACT</span>
+                                    </div>
+                                    <ul class="card-facts-list" id="cardValFactsList">
+                                        <li>Chairs were historically symbols of high authority; commoners sat on benches
+                                            until the 16th century.</li>
+                                        <li>The world's oldest surviving ceremonial chair dates back to Ancient Egypt
+                                            over 3,000 years ago.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Card 5: MORE INFORMATION -->
+                                <div class="interactive-result-card card-more-info" id="cardMoreInfo">
+                                    <div class="card-icon-bubble">📚</div>
+                                    <div class="card-header-meta">
+                                        <span class="card-kicker">MORE INFORMATION</span>
+                                    </div>
+                                    <p class="card-body-text" id="cardValMoreInfo">
+                                        Found throughout homes, offices, schools, and spaceships. Ergonomic modern
+                                        designs protect spine health and support productivity.
+                                    </p>
+                                </div>
+
+                                <!-- Card 6: LEARN MORE -->
+                                <div class="interactive-result-card card-learn-more" id="cardLearnMore">
+                                    <div class="card-icon-bubble">🔗</div>
+                                    <div class="card-header-meta">
+                                        <span class="card-kicker">LEARN MORE</span>
+                                    </div>
+                                    <p class="learn-explainer" id="cardLearnExplainer">Explore reliable encyclopedic
+                                        records and verified history:</p>
+                                    <a href="https://en.wikipedia.org/wiki/Chair" target="_blank"
+                                        rel="noopener noreferrer" class="btn-learn-more-link" id="cardBtnLearnMore">
+                                        <span>Read on Wikipedia</span>
+                                        <span class="ext-icon">↗</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Continue Flow CTA Button -->
+                            <div class="result-action-footer">
+                                <button type="button" class="btn-continue-multiverse" id="btnDiscoverMyThing">
+                                    <span>🚀 Explore Multiverse (LinkedIn, Astro, Chat) →</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
-        <!-- =====================================
-             RESULTS
-        ====================================== -->
+        <!-- ========================================================
+             PAGE 3 — 🔍 THING DETECTED + DESCRIPTION
+             ======================================================== -->
+        <section class="screen-container" id="screen-3" data-screen-index="3">
+            <div class="screen-bg-canvas bg-detect-stage"></div>
 
-        <section
-            id="resultsSection"
-            class="results-section hidden"
-        >
-
-            <div class="result-header">
-
-                <div class="badge">
-                    ✦ THINGVERSE IDENTITY GENERATED
+            <div class="screen-content-wrapper detect-screen-wrapper">
+                <div class="screen-header-block">
+                    <span class="screen-step-badge">STEP 3 OF 8</span>
+                    <h2 class="screen-heading">MEET YOUR THING</h2>
+                    <p class="screen-subheading">“The scans are complete. Your object has been awakened into the
+                        ThingVerse.”</p>
                 </div>
 
-                <h2 id="objectName">
-                    Your Thing
-                </h2>
+                <div class="detect-split-grid">
+                    <!-- Real vs Cartoon Comparison Card -->
+                    <div class="comparison-dual-card">
+                        <div class="comp-col real-col">
+                            <span class="comp-tag tag-real">REAL THING</span>
+                            <div class="comp-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80"
+                                    alt="Real Thing" class="comp-photo" id="page3RealPhoto">
+                            </div>
+                            <span class="comp-subtext">Ordinary Room Inhabitant</span>
+                        </div>
 
-                <p id="oneLineDescription">
-                </p>
+                        <div class="comp-arrow-divider">
+                            <span class="arrow-symbol">➔</span>
+                            <span class="awaken-text">AWAKENED</span>
+                        </div>
 
-            </div>
-
-
-            <!-- PERSONALITY -->
-
-            <div class="result-card personality-card">
-
-                <div class="card-title">
-
-                    <span>🎭</span>
-
-                    <h3>
-                        Personality
-                    </h3>
-
-                </div>
-
-                <p id="funnyDescription"></p>
-
-
-                <div
-                    id="personalityTraits"
-                    class="traits"
-                >
-                </div>
-
-            </div>
-
-
-            <!-- LINKEDIN -->
-
-            <div class="result-card linkedin-card">
-
-                <div class="card-title">
-
-                    <span>💼</span>
-
-                    <h3>
-                        LinkedIn
-                    </h3>
-
-                </div>
-
-
-                <h4 id="linkedinHeadline"></h4>
-
-                <p id="linkedinAbout"></p>
-
-
-                <div class="info-row">
-
-                    <strong>
-                        Current Role
-                    </strong>
-
-                    <span id="linkedinRole"></span>
-
-                </div>
-
-
-                <div>
-
-                    <strong>
-                        Skills
-                    </strong>
-
-                    <div
-                        id="linkedinSkills"
-                        class="chips"
-                    >
+                        <div class="comp-col cartoon-col">
+                            <span class="comp-tag tag-cartoon">THINGVERSE VERSION</span>
+                            <div class="comp-img-wrap">
+                                <img src="/artifacts/obj_cartoon_chair_1789174799430.jpg" alt="Cartoon Thing"
+                                    class="comp-photo" id="page3CartoonPhoto"
+                                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80';">
+                            </div>
+                            <span class="comp-subtext">Sentient Cartoon Character</span>
+                        </div>
                     </div>
 
+                    <!-- Description & Discovery Dossier -->
+                    <div class="discovery-dossier-card">
+                        <div class="detected-headline-bar">
+                            <span class="detect-pill" id="page3DetectedPill">Detected Object: CHAIR</span>
+                            <span class="status-pill" id="page3StatusPill">Sentient &amp; Emotionally Tired</span>
+                        </div>
+
+                        <h3 class="object-real-name" id="page3ObjectName">Charlie the Royal Chair</h3>
+
+                        <!-- Thing Description Box -->
+                        <div class="dossier-block desc-quote-box">
+                            <span class="dossier-label">THING DESCRIPTION</span>
+                            <p class="dossier-quote" id="page3FunnyQuote">
+                                “Supports everyone all day but still gets blamed when someone falls.”
+                            </p>
+                        </div>
+
+                        <!-- First Impression & Secret Personality -->
+                        <div class="dossier-cards-pair">
+                            <div class="dossier-mini-card">
+                                <span class="dossier-label">FIRST IMPRESSION</span>
+                                <p class="mini-card-text" id="page3FirstImpression">
+                                    Looks comfortable, but is internally calculating the exact weight of adult burdens.
+                                </p>
+                            </div>
+                            <div class="dossier-mini-card">
+                                <span class="dossier-label">SECRET PERSONALITY</span>
+                                <p class="mini-card-text" id="page3SecretPersonality">
+                                    Patient listener who secretly hopes you'll sit down gently for once in your life.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Voice Line CTA -->
+                        <button type="button" class="btn-voice-line" id="btnPage3Speak">
+                            <span class="speaker-icon">🗣️</span>
+                            <span>Hear What It Says!</span>
+                        </button>
+                    </div>
                 </div>
-
-
-                <div class="experience-box">
-
-                    <strong>
-                        Experience
-                    </strong>
-
-                    <p id="linkedinExperience"></p>
-
-                </div>
-
             </div>
+        </section>
 
 
-            <!-- MATRIMONY -->
+        <!-- ========================================================
+             PAGE 4 — 🏆 THINGVERSE BADGE & PERSONALITY
+             ======================================================== -->
+        <section class="screen-container" id="screen-4" data-screen-index="4">
+            <div class="screen-bg-canvas bg-personality-stage"></div>
 
-            <div class="result-card matrimony-card">
-
-                <div class="card-title">
-
-                    <span>💍</span>
-
-                    <h3>
-                        Matrimony
-                    </h3>
-
+            <div class="screen-content-wrapper personality-screen-wrapper">
+                <div class="screen-header-block">
+                    <span class="screen-step-badge">STEP 4 OF 8</span>
+                    <h2 class="screen-heading">YOUR THING'S PERSONALITY</h2>
+                    <p class="screen-subheading">“Every object has an emotional blueprint and an official title.”</p>
                 </div>
 
+                <div class="personality-stage-grid">
+                    <!-- Left: Large Official ThingVerse Badge Card -->
+                    <div class="badge-award-card">
+                        <div class="award-ribbon">OFFICIAL RECOGNITION</div>
+                        <div class="badge-icon-frame">
+                            <span class="badge-mega-icon" id="page4BadgeIcon">🏆</span>
+                        </div>
+                        <h3 class="badge-title-text" id="page4BadgeTitle">Professional Supporter</h3>
+                        <p class="badge-tagline" id="page4BadgeTagline">Certified Comfort Object of the Year</p>
 
-                <div class="matrimony-status">
+                        <div class="badge-object-portrait">
+                            <img src="/artifacts/obj_cartoon_chair_1789174799430.jpg" alt="Badge Object"
+                                id="page4BadgeImg"
+                                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80';">
+                        </div>
 
-                    <span>
-                        Status
-                    </span>
-
-                    <strong id="marriageStatus"></strong>
-
-                </div>
-
-
-                <p id="marriageBio"></p>
-
-
-                <div class="two-column">
-
-                    <div>
-
-                        <h4>
-                            💚 Green Flags
-                        </h4>
-
-                        <ul
-                            id="greenFlags"
-                        >
-                        </ul>
-
+                        <div class="badge-cert-footer">
+                            <span>ISSUED BY: THINGVERSE COUNCIL OF INANIMATE BEINGS</span>
+                        </div>
                     </div>
 
+                    <!-- Right: Animated Personality Meters -->
+                    <div class="meters-dashboard-card">
+                        <h3 class="meters-card-title">Emotional Diagnostics:</h3>
+                        <p class="meters-card-sub">Measured using domestic psychological sensors:</p>
 
-                    <div>
+                        <div class="meter-rows-list">
+                            <div class="meter-row-item">
+                                <div class="meter-meta">
+                                    <span>Mood</span>
+                                    <strong id="p4ValMood">😌 Patient</strong>
+                                </div>
+                                <div class="meter-track">
+                                    <div class="meter-fill fill-mood" id="p4FillMood" style="width: 82%;"></div>
+                                </div>
+                            </div>
 
-                        <h4>
-                            🚩 Red Flags
-                        </h4>
+                            <div class="meter-row-item">
+                                <div class="meter-meta">
+                                    <span>⚡ Energy</span>
+                                    <strong id="p4ValEnergy">78%</strong>
+                                </div>
+                                <div class="meter-track">
+                                    <div class="meter-fill fill-energy" id="p4FillEnergy" style="width: 78%;"></div>
+                                </div>
+                            </div>
 
-                        <ul
-                            id="redFlags"
-                        >
-                        </ul>
+                            <div class="meter-row-item">
+                                <div class="meter-meta">
+                                    <span>🧘 Patience</span>
+                                    <strong id="p4ValPatience">92%</strong>
+                                </div>
+                                <div class="meter-track">
+                                    <div class="meter-fill fill-patience" id="p4FillPatience" style="width: 92%;"></div>
+                                </div>
+                            </div>
 
+                            <div class="meter-row-item">
+                                <div class="meter-meta">
+                                    <span>🎭 Drama</span>
+                                    <strong id="p4ValDrama">64%</strong>
+                                </div>
+                                <div class="meter-track">
+                                    <div class="meter-fill fill-drama" id="p4FillDrama" style="width: 64%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="meter-row-item">
+                                <div class="meter-meta">
+                                    <span>🔥 Attitude</span>
+                                    <strong id="p4ValAttitude">81%</strong>
+                                </div>
+                                <div class="meter-track">
+                                    <div class="meter-fill fill-attitude" id="p4FillAttitude" style="width: 81%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="meter-row-item">
+                                <div class="meter-meta">
+                                    <span>🌪️ Chaos</span>
+                                    <strong id="p4ValChaos">45%</strong>
+                                </div>
+                                <div class="meter-track">
+                                    <div class="meter-fill fill-chaos" id="p4FillChaos" style="width: 45%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p4-cta-wrap">
+                            <button type="button" class="btn-create-profile" id="btnGoToLinkedin">
+                                <span>CREATE MY THING'S PROFILE →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             PAGE 5 — 💼 LINKEDIN PROFILE FOR THE THING
+             ======================================================== -->
+        <section class="screen-container" id="screen-5" data-screen-index="5">
+            <div class="screen-bg-canvas bg-linkedin-stage"></div>
+
+            <div class="screen-content-wrapper linkedin-screen-wrapper">
+                <div class="screen-header-block">
+                    <span class="screen-step-badge">STEP 5 OF 8</span>
+                    <h2 class="screen-heading">IF YOUR THING HAD LINKEDIN…</h2>
+                    <p class="screen-subheading">“The corporate world is brutal. Here is how your object navigates its
+                        career.”</p>
+                </div>
+
+                <!-- Mock ThingLink Professional Profile Card -->
+                <div class="thinglink-profile-frame">
+                    <!-- Banner & Header -->
+                    <div class="thinglink-banner">
+                        <div class="banner-badge-network">ThingLink • Executive Network</div>
                     </div>
 
-                </div>
+                    <div class="thinglink-header-row">
+                        <div class="thinglink-avatar-wrap">
+                            <img src="/artifacts/obj_cartoon_chair_1789174799430.jpg" alt="Profile Avatar"
+                                class="thinglink-avatar" id="p5Avatar"
+                                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80';">
+                            <span class="verified-inanimate-check" title="Verified Inanimate Object">✓</span>
+                        </div>
 
+                        <div class="thinglink-header-meta">
+                            <div class="name-conn-row">
+                                <h3 class="pro-name" id="p5Name">Charlie the Chair</h3>
+                                <span class="connections-count">500+ Domestic Connections</span>
+                            </div>
+                            <p class="pro-headline" id="p5JobTitle">Professional Support Specialist | Senior Sitting
+                                Consultant</p>
+                            <p class="pro-location">Living Room Headquarters • Open to Supporting Anyone</p>
 
-                <div class="match-box">
-
-                    <strong>
-                        Best Match
-                    </strong>
-
-                    <p id="bestMatch"></p>
-
-                    <strong>
-                        Looking For
-                    </strong>
-
-                    <p id="lookingFor"></p>
-
-                </div>
-
-            </div>
-
-
-            <!-- ASTROLOGY -->
-
-            <div class="result-card astrology-card">
-
-                <div class="card-title">
-
-                    <span>🔮</span>
-
-                    <h3>
-                        Astrology
-                    </h3>
-
-                </div>
-
-
-                <div class="astrology-grid">
-
-                    <div>
-
-                        <span>
-                            Zodiac
-                        </span>
-
-                        <strong id="zodiac"></strong>
-
+                            <div class="thinglink-buttons-row">
+                                <button type="button" class="btn-thing-connect" id="btnThingConnect">
+                                    <span class="btn-icon">🤝</span>
+                                    <span id="txtConnectStatus">Connect</span>
+                                </button>
+                                <button type="button" class="btn-thing-msg" id="btnThingMessage">
+                                    <span class="btn-icon">💬</span>
+                                    <span>Message</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Profile Sections -->
+                    <div class="thinglink-body-sections">
+                        <!-- About -->
+                        <div class="pro-section-card">
+                            <h4 class="pro-sec-title">About</h4>
+                            <p class="pro-sec-text" id="p5AboutText">
+                                “Experienced in supporting people through meetings, exams, gaming sessions and
+                                questionable life decisions. Proven track record of withstanding gravity without
+                                complaining.”
+                            </p>
+                        </div>
 
-                    <div>
+                        <!-- Experience -->
+                        <div class="pro-section-card">
+                            <h4 class="pro-sec-title">Experience</h4>
+                            <div class="experience-entry">
+                                <div class="exp-icon">🪑</div>
+                                <div>
+                                    <h5 class="exp-role" id="p5ExpRole">Senior Sitting Consultant</h5>
+                                    <p class="exp-company">Home Office &amp; Living Room Division • 2019 — Present</p>
+                                    <p class="exp-desc" id="p5ExpDesc">Solely responsible for absorbing human weight,
+                                        preventing posture disasters, and quietly holding laundry.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                        <span>
-                            Element
-                        </span>
+                        <!-- Skills with Endorsements -->
+                        <div class="pro-section-card">
+                            <h4 class="pro-sec-title">Skills &amp; Endorsements</h4>
+                            <div class="skills-chips-row" id="p5SkillsRow">
+                                <span class="skill-pill">Supporting People (99+)</span>
+                                <span class="skill-pill">Surviving Weight (88+)</span>
+                                <span class="skill-pill">Listening to Problems (76+)</span>
+                                <span class="skill-pill">Staying in One Place (94+)</span>
+                                <span class="skill-pill">Office Politics (52+)</span>
+                            </div>
+                        </div>
 
-                        <strong id="element"></strong>
-
+                        <!-- Coworker Network -->
+                        <div class="pro-section-card">
+                            <h4 class="pro-sec-title">Domestic Coworker Connections</h4>
+                            <div class="coworkers-grid">
+                                <div class="coworker-item">
+                                    <span class="cw-emoji">💻</span>
+                                    <div>
+                                        <strong>Leonard Laptop</strong>
+                                        <p>Chief Radiator Officer</p>
+                                    </div>
+                                    <button type="button" class="btn-cw-connect">Connect</button>
+                                </div>
+                                <div class="coworker-item">
+                                    <span class="cw-emoji">☕</span>
+                                    <div>
+                                        <strong>Pip Coffee Mug</strong>
+                                        <p>VP of Morning Awakening</p>
+                                    </div>
+                                    <button type="button" class="btn-cw-connect">Connect</button>
+                                </div>
+                                <div class="coworker-item">
+                                    <span class="cw-emoji">📱</span>
+                                    <div>
+                                        <strong>Penelope Phone</strong>
+                                        <p>Head of Screen Time Maximization</p>
+                                    </div>
+                                    <button type="button" class="btn-cw-connect">Connect</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Next Screen Button -->
+                    <div class="p5-cta-container">
+                        <button type="button" class="btn-see-astro" id="btnGoToAstro">
+                            <span>SEE MY ASTRO PROFILE →</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div>
 
-                        <span>
-                            Lucky Number
-                        </span>
+        <!-- ========================================================
+             PAGE 6 — 🔮 ASTRO / THING HOROSCOPE
+             ======================================================== -->
+        <section class="screen-container" id="screen-6" data-screen-index="6">
+            <div class="screen-bg-canvas bg-astro-universe">
+                <div class="celestial-stars-grid"></div>
+                <div class="celestial-nebula-aura"></div>
+            </div>
 
-                        <strong id="luckyNumber"></strong>
+            <div class="screen-content-wrapper astro-screen-wrapper">
+                <div class="screen-header-block text-white">
+                    <span class="screen-step-badge astro-badge">STEP 6 OF 8</span>
+                    <h2 class="screen-heading text-white">THING ASTROLOGY</h2>
+                    <p class="screen-subheading text-white-dim">“Every thing has a vibe. Maybe it has a zodiac sign
+                        too.”</p>
+                </div>
 
+                <!-- Cosmic Horoscope Dashboard Card -->
+                <div class="astro-horoscope-frame">
+                    <div class="astro-card-hero">
+                        <div class="zodiac-constellation-symbol" id="p6ZodiacGlyph">♑</div>
+                        <div class="zodiac-title-block">
+                            <span class="zodiac-super">THING ZODIAC</span>
+                            <h3 class="zodiac-name" id="p6ZodiacName">CAPRICORN CHAIR</h3>
+                            <p class="zodiac-ruler" id="p6ZodiacRuler">Ruled by Saturn • Grounded &amp; Steadfast</p>
+                        </div>
                     </div>
 
+                    <!-- Astrology Elements Grid -->
+                    <div class="astro-attributes-grid">
+                        <div class="astro-attr-card">
+                            <span class="attr-icon">🌿</span>
+                            <span class="attr-name">ELEMENT</span>
+                            <strong class="attr-val" id="p6AttrElement">Wood / Earth</strong>
+                        </div>
 
-                    <div>
+                        <div class="astro-attr-card">
+                            <span class="attr-icon">🪐</span>
+                            <span class="attr-name">PLANET</span>
+                            <strong class="attr-val" id="p6AttrPlanet">Saturn</strong>
+                        </div>
 
-                        <span>
-                            Mood
-                        </span>
+                        <div class="astro-attr-card">
+                            <span class="attr-icon">💖</span>
+                            <span class="attr-name">COMPATIBILITY</span>
+                            <strong class="attr-val" id="p6AttrCompat">Plush Velvet Sofa</strong>
+                        </div>
 
-                        <strong id="mood"></strong>
+                        <div class="astro-attr-card">
+                            <span class="attr-icon">🍀</span>
+                            <span class="attr-name">LUCKY OBJECT</span>
+                            <strong class="attr-val" id="p6AttrLuckyObj">Wooden Coaster</strong>
+                        </div>
 
+                        <div class="astro-attr-card">
+                            <span class="attr-icon">🎨</span>
+                            <span class="attr-name">LUCKY COLOR</span>
+                            <strong class="attr-val" id="p6AttrLuckyColor">Warm Amber Oak</strong>
+                        </div>
+
+                        <div class="astro-attr-card">
+                            <span class="attr-icon">⏰</span>
+                            <span class="attr-name">AUSPICIOUS HOUR</span>
+                            <strong class="attr-val">2:00 PM – 4:00 PM</strong>
+                        </div>
                     </div>
 
+                    <!-- Today's Thing Prediction Box -->
+                    <div class="today-prediction-box">
+                        <div class="prediction-glow-icon">🔮</div>
+                        <div class="prediction-text-block">
+                            <span class="pred-label">TODAY'S THING PREDICTION</span>
+                            <p class="pred-quote" id="p6PredictionText">
+                                “Someone will sit on you without asking. Stay strong.”
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="astro-disclaimer-note">
+                        <span>✨ Clearly presented as fun fictional entertainment for inanimate objects.</span>
+                    </div>
+
+                    <div class="p6-cta-container">
+                        <button type="button" class="btn-ask-my-thing" id="btnGoToAsk">
+                            <span>ASK MY THING →</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             PAGE 7 — 💬 ASK YOUR THING
+             ======================================================== -->
+        <section class="screen-container" id="screen-7" data-screen-index="7">
+            <div class="screen-bg-canvas bg-ask-chat"></div>
+
+            <div class="screen-content-wrapper ask-screen-wrapper">
+                <div class="screen-header-block">
+                    <span class="screen-step-badge">STEP 7 OF 8</span>
+                    <h2 class="screen-heading">ASK YOUR THING</h2>
+                    <p class="screen-subheading">“Your thing has opinions. Probably too many.”</p>
                 </div>
 
+                <div class="ask-chat-frame">
+                    <!-- Chat Hero Header with Living Mascot -->
+                    <div class="chat-character-header">
+                        <div class="chat-avatar-wrap">
+                            <img src="/artifacts/obj_cartoon_chair_1789174799430.jpg" alt="Chat Object"
+                                class="chat-avatar" id="p7Avatar"
+                                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80';">
+                            <span class="online-indicator"></span>
+                        </div>
+                        <div>
+                            <h3 class="chat-char-name" id="p7Name">Charlie the Chair</h3>
+                            <p class="chat-char-status">Currently in living room • Ready to voice complaints</p>
+                        </div>
+                    </div>
 
-                <div class="prediction">
+                    <!-- Conversation Message Feed -->
+                    <div class="chat-messages-feed" id="chatMessagesFeed">
+                        <div class="chat-bubble bubble-object">
+                            <span class="speaker-tag" id="p7BubbleSpeaker">Charlie:</span>
+                            <p id="p7InitialGreeting">“I have been sitting here silently observing your life. Ask me
+                                anything, human. I hold nothing back.”</p>
+                        </div>
+                    </div>
 
-                    <strong>
-                        Today's Totally Accurate Prediction
-                    </strong>
+                    <!-- Suggested Quick Questions -->
+                    <div class="suggested-questions-box">
+                        <span class="suggest-intro">💡 Suggested Questions:</span>
+                        <div class="questions-chips-wrap">
+                            <button type="button" class="q-chip" data-q="What do you think about me?">“What do you think
+                                about me?”</button>
+                            <button type="button" class="q-chip" data-q="Why are you always tired?">“Why are you always
+                                tired?”</button>
+                            <button type="button" class="q-chip" data-q="What's your biggest secret?">“What's your
+                                biggest secret?”</button>
+                            <button type="button" class="q-chip" data-q="How do you feel every day?">“How do you feel
+                                every day?”</button>
+                            <button type="button" class="q-chip" data-q="What is your biggest complaint?">“What is your
+                                biggest complaint?”</button>
+                            <button type="button" class="q-chip" data-q="Who is your best friend?">“Who is your best
+                                friend?”</button>
+                        </div>
+                    </div>
 
-                    <p id="prediction"></p>
+                    <!-- Custom Question Input Bar -->
+                    <form class="chat-input-bar" id="chatInputForm">
+                        <input type="text" class="chat-text-input" id="chatTextInput"
+                            placeholder="Type your own question for your thing..." required
+                            aria-label="Question for Object">
+                        <button type="submit" class="btn-send-chat" id="btnSendChat">
+                            <span>Send 💬</span>
+                        </button>
+                    </form>
 
+                    <!-- Next Screen Action Button -->
+                    <div class="p7-cta-container">
+                        <button type="button" class="btn-final-profile-next" id="btnGoToProfile">
+                            <span>VIEW FINAL THING PROFILE →</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================
+             PAGE 8 — 📖 FINAL THING PROFILE
+             ======================================================== -->
+        <section class="screen-container" id="screen-8" data-screen-index="8">
+            <div class="screen-bg-canvas bg-profile-grand"></div>
+
+            <div class="screen-content-wrapper profile-screen-wrapper">
+                <div class="screen-header-block">
+                    <span class="screen-step-badge badge-grand">STEP 8 OF 8 • GRAND FINALE</span>
+                    <h2 class="screen-heading">YOUR THINGVERSE PROFILE</h2>
+                    <p class="screen-subheading">“The complete dossier on your sentient companion.”</p>
                 </div>
 
-            </div>
+                <!-- Grand Master Profile Card -->
+                <div class="master-dossier-card" id="masterDossierCard">
+                    <!-- Grand Header -->
+                    <div class="dossier-hero-header">
+                        <div class="dossier-avatars-pair">
+                            <div class="avatar-box">
+                                <span class="avatar-label">ORIGINAL</span>
+                                <img src="https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80"
+                                    alt="Original Photo" class="dossier-avatar-img" id="p8RealPhoto">
+                            </div>
+                            <span class="avatars-link-icon">⚡</span>
+                            <div class="avatar-box">
+                                <span class="avatar-label">CARTOON</span>
+                                <img src="/artifacts/obj_cartoon_chair_1789174799430.jpg" alt="Cartoon Likeness"
+                                    class="dossier-avatar-img" id="p8CartoonPhoto"
+                                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580481077112-70c8f5f6579d?w=600&auto=format&fit=crop&q=80';">
+                            </div>
+                        </div>
 
+                        <div class="dossier-title-block">
+                            <div class="dossier-badge-pill" id="p8Badge">🏆 Professional Supporter</div>
+                            <h3 class="dossier-name" id="p8Name">Charlie the Royal Chair</h3>
+                            <p class="dossier-pro-title" id="p8ProRole">Senior Sitting Consultant • Domestic
+                                Headquarters</p>
+                        </div>
+                    </div>
 
-            <!-- FUN FACTS -->
+                    <!-- Dossier Content Grid -->
+                    <div class="dossier-content-grid">
+                        <!-- Left Sub-card: Bio & Quote -->
+                        <div class="dossier-section-box">
+                            <h4 class="sec-title">Thing Description &amp; Bio</h4>
+                            <p class="sec-body" id="p8Desc">
+                                “Supports everyone all day but still gets blamed when someone falls. Has survived 1,400
+                                hours of gaming sessions and Netflix marathons.”
+                            </p>
 
-            <div class="result-card">
+                            <div class="fave-quote-block">
+                                <strong>FAVOURITE QUOTE:</strong>
+                                <p id="p8FaveQuote">“Sit down gently, please. My cushions have feelings too.”</p>
+                            </div>
+                        </div>
 
-                <div class="card-title">
+                        <!-- Right Sub-card: Stats & Astrology -->
+                        <div class="dossier-section-box">
+                            <h4 class="sec-title">Cosmic &amp; Emotional Metrics</h4>
+                            <div class="metrics-pills-row">
+                                <span class="metric-chip" id="p8MetricMood">Mood: 😌 Patient</span>
+                                <span class="metric-chip" id="p8MetricEnergy">Energy: 78%</span>
+                                <span class="metric-chip" id="p8MetricPatience">Patience: 92%</span>
+                                <span class="metric-chip" id="p8MetricZodiac">Zodiac: ♑ Capricorn</span>
+                                <span class="metric-chip" id="p8MetricElement">Element: Wood</span>
+                                <span class="metric-chip" id="p8MetricPlanet">Planet: Saturn</span>
+                            </div>
 
-                    <span>🤯</span>
+                            <div class="fave-quote-block" style="margin-top: 1rem;">
+                                <strong>PREDICTION VERDICT:</strong>
+                                <p id="p8Prediction">“Someone will sit on you without asking. Stay strong.”</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h3>
-                        Completely Unnecessary Fun Facts
-                    </h3>
-
+                    <!-- Final Action Controls -->
+                    <div class="dossier-actions-row">
+                        <button type="button" class="btn-share-thing" id="btnShareThing">
+                            <span class="btn-icon">📋</span>
+                            <span>SHARE MY THING</span>
+                        </button>
+                        <button type="button" class="btn-start-again" id="btnStartAgain">
+                            <span class="btn-icon">🔄</span>
+                            <span>START AGAIN</span>
+                        </button>
+                        <button type="button" class="btn-explore-another" id="btnExploreAnother">
+                            <span class="btn-icon">📸</span>
+                            <span>EXPLORE ANOTHER THING</span>
+                        </button>
+                    </div>
                 </div>
-
-
-                <ul
-                    id="funFacts"
-                    class="fun-facts"
-                >
-                </ul>
-
             </div>
-
-
-            <!-- DAILY LIFE -->
-
-            <div class="result-card">
-
-                <div class="card-title">
-
-                    <span>☀️</span>
-
-                    <h3>
-                        A Day in Its Life
-                    </h3>
-
-                </div>
-
-                <p id="dailyLife"></p>
-
-            </div>
-
-
-            <!-- FINAL VERDICT -->
-
-            <div class="final-verdict">
-
-                <span>
-                    ⚖️
-                </span>
-
-                <div>
-
-                    <h3>
-                        THINGVERSE FINAL VERDICT
-                    </h3>
-
-                    <p id="finalVerdict"></p>
-
-                </div>
-
-            </div>
-
-
-            <div class="result-actions">
-
-                <button
-                    id="copyButton"
-                    class="secondary-button"
-                >
-                    📋 Copy Profile
-                </button>
-
-
-                <button
-                    id="newThingButton"
-                    class="primary-button"
-                >
-                    🔄 Meet Another Thing
-                </button>
-
-            </div>
-
         </section>
 
     </main>
 
 
-    <!-- =====================================
-         FOOTER
-    ====================================== -->
+    <!-- ============================================================
+         BOTTOM FLOATING SCREEN NAVIGATION BAR (BACK & NEXT)
+         ============================================================ -->
+    <nav class="bottom-floating-nav" id="bottomNav" aria-label="Screen Navigation">
+        <button type="button" class="btn-nav-prev" id="btnNavBack">
+            <span class="nav-arrow">←</span>
+            <span class="nav-btn-text" id="lblNavBack">BACK</span>
+        </button>
 
-    <footer>
+        <span class="nav-current-screen-indicator" id="navScreenIndicator">PAGE 1 OF 8</span>
 
-        <p>
-            THINGVERSE © 2026
-        </p>
-
-        <p>
-            Making ordinary things unnecessarily interesting.
-        </p>
-
-    </footer>
+        <button type="button" class="btn-nav-next" id="btnNavNext">
+            <span class="nav-btn-text" id="lblNavNext">NEXT</span>
+            <span class="nav-arrow">→</span>
+        </button>
+    </nav>
 
 
+    <!-- ============================================================
+         CAMERA MODAL (WebRTC Stream & Snapshot)
+         ============================================================ -->
+    <div class="thing-modal-backdrop" id="cameraModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="thing-modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <span class="modal-icon">📸</span>
+                    <h3 class="modal-title">Live Object Camera</h3>
+                </div>
+                <button type="button" class="btn-close-modal" id="btnCloseCamera" aria-label="Close Camera">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="camera-viewport">
+                    <video id="cameraVideo" autoplay playsinline muted></video>
+                    <canvas id="cameraCanvas" style="display: none;"></canvas>
+                    <div class="camera-crosshair"></div>
+                </div>
+                <p class="camera-hint">Point your camera at any object (a chair, mug, shoe, bottle) and click Snap!</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-modal-secondary" id="btnFlipCamera">🔄 Flip Camera</button>
+                <button type="button" class="btn-modal-primary" id="btnCaptureSnapshot">⚡ Snap Photo</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         GLOBAL TOAST HUB
+         ============================================================ -->
+    <div class="toast-hub" id="toastHub" aria-live="polite"></div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
-
 </body>
 
 </html>
